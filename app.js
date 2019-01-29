@@ -36,6 +36,10 @@ let newGame = function(){
     $scope.displayWord = hiddenWordDisplay;
     
 }
+    $scope.letterChosen = function(){
+        
+
+}
 newGame();
 
 
