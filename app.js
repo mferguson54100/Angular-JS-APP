@@ -66,7 +66,14 @@ let newGame = function(){
         
     }if(!correct){
         $scope.incorrectLettersChosen.push($scope.input.letter.toLowerCase());
-        
+        $scope.numberOfGuesses = $scope.numberOfGuesses -1;
+    }  
+    $scope.input.letter="";
+    if($scope.numberOfGuesses==0){
+        alert("You lose!!!!");     
+    }
+    if($scope.displayWord.indexOf("*")==-1){
+        alert("you won");
     }
 }
 
