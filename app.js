@@ -37,10 +37,41 @@ let newGame = function(){
     
 }
     $scope.letterChosen = function(){
-        
 
+    for(let i =0; i< $scope.correctLetters.length; i++){
+        if($scope.correctLetters[i].toLowerCase() ===$scope.input.letter.toLowerCase()){
+            $scope.input.letter="";
+            return;
+        }
+    }
+        for(let i =0; i< $scope.incorrectLettersChosen.length; i++){
+            if($scope.incorrectLettersChosen[i].toLowerCase() === $scope.input.letter.toLowerCase()){
+                $scope.input.letter="";
+                return;
+            }
+        
+    }
+    let correct = false;
+    for(let i =0; i< selectedWord.length; i++){
+        if(selectedWord[i].toLowerCase() ===$scope.input.letter.toLowerCase()){
+            $scope.displayWord = $scope.displayWord.slice(0,i) + $scope.input.letter.toLowerCase()+$scope.displayWord.slice(i +1);
+            correct = true;
+
+        }
+    }
+    if(correct){
+        $scope.correctLetters.push($scope.input.letter.toLowerCase());
+        
+        
+        
+    }if(!correct){
+        $scope.incorrectLettersChosen.push($scope.input.letter.toLowerCase());
+        
+    }
 }
+
 newGame();
+
 
 
 }]);
